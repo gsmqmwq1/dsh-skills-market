@@ -41,6 +41,15 @@ def parse_frontmatter(content: str) -> dict:
                 fm[k] = v
     return fm
 
+def clean_version(tag: str) -> str:
+    """Standardize tags and release names to clean semantic versioning."""
+    if not tag:
+        return ""
+    m = re.search(r'(\d+\.\d+(?:\.\d+)?(?:[-a-zA-Z0-9\.]*)?)', tag)
+    if m:
+        return m.group(1).rstrip('.')
+    return tag.lstrip('vV').strip()
+
 def audit_skills(db_path: str) -> bool:
     print("\n" + "=" * 55)
     print(f"[AUDIT] Auditing Skills Database: {db_path}")
@@ -80,7 +89,7 @@ def audit_skills(db_path: str) -> bool:
         print(f"[SUCCESS] Audit PASSED: All {len(skills)} skills strictly compliant with standards!\n")
         return True
 
-def sync_upstream_skills(db_path: str, max_fetch=30) -> int:
+def sync_upstream_skills(db_path: str, max_fetch=None) -> int:
     """Fetch potential updates from upstream GitHub repositories (Releases, Tags, and SKILL.md)."""
     print("\n" + "=" * 55)
     print("[SYNC] Checking Upstream Repositories (72h Auto-Sync)")
@@ -97,9 +106,25 @@ def sync_upstream_skills(db_path: str, max_fetch=30) -> int:
     if token:
         headers["Authorization"] = f"token {token}"
 
+    # Determine fetch scope
+    is_full = False
+    if os.environ.get("FORCE_FULL_SYNC", "").lower() in ("true", "1") or \
+       os.environ.get("INPUT_FORCE_FULL_SYNC", "").lower() in ("true", "1"):
+        is_full = True
+
+    if is_full or max_fetch is None or max_fetch <= 0:
+        target_skills = skills
+        print(f"[INFO] Full sync mode: Checking all {len(target_skills)} curated skills...")
+    else:
+        target_skills = skills[:max_fetch]
+        print(f"[INFO] Batch sync mode: Checking first {len(target_skills)} / {len(skills)} skills...")
+
+    root_dir = os.path.dirname(os.path.abspath(db_path))
+    bundled_dir = os.path.join(root_dir, "bundled_skills")
+
     updated_count = 0
-    # Scan skills that have upstream repos
-    for s in skills[:max_fetch]:
+    # Scan target skills
+    for s in target_skills:
         repo = s.get("repo", "")
         sid = s.get("id", "")
         if not repo or "/" not in repo:
@@ -111,12 +136,12 @@ def sync_upstream_skills(db_path: str, max_fetch=30) -> int:
         try:
             api_url = f"https://api.github.com/repos/{repo}/releases/latest"
             req = urllib.request.Request(api_url, headers=headers)
-            with urllib.request.urlopen(req, timeout=3) as resp:
+            with urllib.request.urlopen(req, timeout=4) as resp:
                 if resp.status == 200:
                     data = json.loads(resp.read().decode('utf-8'))
                     tag = data.get("tag_name", "").strip()
                     if tag:
-                        clean_tag = tag.lstrip("vV")
+                        clean_tag = clean_version(tag)
                         if clean_tag and clean_tag != old_ver:
                             print(f"  [UPDATE] Upstream GitHub release for [{sid}]: {old_ver} -> {clean_tag}")
                             s["version"] = clean_tag
@@ -129,17 +154,25 @@ def sync_upstream_skills(db_path: str, max_fetch=30) -> int:
         raw_url = f"https://raw.githubusercontent.com/{repo}/main/SKILL.md"
         try:
             req = urllib.request.Request(raw_url, headers={"User-Agent": "DeepSeek-Harness-Agent-Sync"})
-            with urllib.request.urlopen(req, timeout=3) as resp:
+            with urllib.request.urlopen(req, timeout=4) as resp:
                 if resp.status == 200:
                     content = resp.read().decode('utf-8', errors='ignore')
                     fm = parse_frontmatter(content)
                     if fm.get("name") and len(content.encode('utf-8')) <= MAX_BYTE_SIZE:
-                        new_ver = fm.get("version", "").lstrip("vV")
+                        new_ver = clean_version(fm.get("version", ""))
                         if new_ver and new_ver != old_ver:
                             print(f"  [UPDATE] Found upstream SKILL.md update for [{sid}]: {old_ver} -> {new_ver}")
                             s["version"] = new_ver
                             s["promptTemplate"] = content
                             s["tokenBudget"] = min(TOKEN_LIMIT, count_approx_tokens(content))
+                            # Sync local bundled file if directory exists
+                            if os.path.isdir(bundled_dir):
+                                b_file = os.path.join(bundled_dir, f"{sid}.md")
+                                try:
+                                    with open(b_file, "w", encoding="utf-8") as bf:
+                                        bf.write(content)
+                                except Exception:
+                                    pass
                             updated_count += 1
         except Exception:
             pass
@@ -157,6 +190,8 @@ def main():
     parser = argparse.ArgumentParser(description="ClawHub 72h Skill Ecosystem Sync & Auditor")
     parser.add_argument("--audit", action="store_true", help="Run 800-token and uniqueness audit")
     parser.add_argument("--sync", action="store_true", help="Attempt upstream sync for candidate skills")
+    parser.add_argument("--full", action="store_true", help="Scan all skills in database (full sync)")
+    parser.add_argument("--max-fetch", type=int, default=None, help="Maximum skills to inspect (default: all)")
     parser.add_argument("--db", default=None, help="Custom skills_db.json path")
     args = parser.parse_args()
 
@@ -165,7 +200,8 @@ def main():
 
     success = True
     if args.sync or not args.audit:
-        sync_upstream_skills(target_db)
+        max_fetch = 0 if args.full else args.max_fetch
+        sync_upstream_skills(target_db, max_fetch=max_fetch)
 
     if args.audit or not args.sync:
         success = audit_skills(target_db)
