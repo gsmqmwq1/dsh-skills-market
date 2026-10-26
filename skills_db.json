@@ -57,7 +57,7 @@
     ],
     "installed": false,
     "added_at": "2026-10-15",
-    "version": "0.3.2"
+    "version": "1.7.0"
   },
   {
     "id": "deepseek-r1-reasoning",
@@ -78,7 +78,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.5.0"
+    "version": "1.0.0"
   },
   {
     "id": "openai-cookbook",
@@ -117,7 +117,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.5.8"
+    "version": "0.3.1"
   },
   {
     "id": "dify-workflow-master",
@@ -136,7 +136,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.15.3"
+    "version": "1.18.0"
   },
   {
     "id": "metagpt-software-company",
@@ -156,7 +156,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.8.2"
+    "version": "0.8.1"
   },
   {
     "id": "fastmcp-protocol",
@@ -175,7 +175,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.1.0"
+    "version": "4.1.4"
   },
   {
     "id": "semantic-kernel",
@@ -194,7 +194,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.18.0"
+    "version": "1.81.0"
   },
   {
     "id": "instructor-structured-data",
@@ -213,7 +213,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.4.2"
+    "version": "1.17.0"
   },
   {
     "id": "swe-bench-agent",
@@ -251,7 +251,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.1.34"
+    "version": "0.13.13"
   },
   {
     "id": "llamaindex-rag-core",
@@ -270,7 +270,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.12.8"
+    "version": "0.14.25"
   },
   {
     "id": "crewai-multi-agent",
@@ -289,7 +289,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.86.0"
+    "version": "1.15.30"
   },
   {
     "id": "autogen-multi-agent",
@@ -308,7 +308,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.4.0"
+    "version": "0.7.5"
   },
   {
     "id": "comfyui-node-workflow",
@@ -327,7 +327,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.3.9"
+    "version": "0.42.1"
   },
   {
     "id": "chatchat-knowledge",
@@ -346,7 +346,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.2.2"
+    "version": "0.3.1"
   },
   {
     "id": "mem0-personalized-memory",
@@ -365,7 +365,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.1.38"
+    "version": "3.3.1"
   },
   {
     "id": "graphrag-knowledge-graph",
@@ -384,7 +384,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.2.9"
+    "version": "3.3.0"
   },
   {
     "id": "dspy-prompt-programming",
@@ -403,7 +403,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.1.9"
+    "version": "3.4.1"
   },
   {
     "id": "prompt-engineering-guide",
@@ -567,7 +567,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.4.9"
+    "version": "0.162.0"
   },
   {
     "id": "flask-microservice-api",
@@ -586,7 +586,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.5.6"
+    "version": "3.1.3"
   },
   {
     "id": "django-enterprise-system",
@@ -624,7 +624,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.1.5"
+    "version": "rel_2_1_6"
   },
   {
     "id": "pydantic-validation-pro",
@@ -643,7 +643,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.1.5"
+    "version": "2.14.1"
   },
   {
     "id": "alembic-db-migrations",
@@ -662,7 +662,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.6.1"
+    "version": "rel_1_20_1"
   },
   {
     "id": "pytest-test-suite",
@@ -681,7 +681,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.7.1"
+    "version": "9.1.1"
   },
   {
     "id": "ruff-linter-formatter",
@@ -700,7 +700,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.8.0"
+    "version": "0.17.2"
   },
   {
     "id": "poetry-dependency-manager",
@@ -719,7 +719,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.8.4"
+    "version": "2.5.1"
   },
   {
     "id": "playwright-automation",
@@ -738,7 +738,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.5.0"
+    "version": "1.64.1"
   },
   {
     "id": "rich-terminal-tui",
@@ -757,7 +757,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.7.0"
+    "version": "15.0.0"
   },
   {
     "id": "textual-tui-app",
@@ -776,7 +776,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.7.3"
+    "version": "8.2.8"
   },
   {
     "id": "typer-cli-builder",
@@ -795,7 +795,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "3.2.1"
+    "version": "0.27.3"
   },
   {
     "id": "redis-distributed-lock",
@@ -814,7 +814,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.6.6"
+    "version": "8.1.0"
   },
   {
     "id": "duckdb-olap-query",
@@ -833,7 +833,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.3.3"
+    "version": "2.0.0"
   },
   {
     "id": "polars-fast-dataframe",
@@ -852,7 +852,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.7.0"
+    "version": "2.1.0"
   },
   {
     "id": "academic-figure-skill",
