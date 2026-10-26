@@ -3084,14 +3084,23 @@ window.__ModuleLoader__.load({
     destinations = [
         os.path.join(root_dir, "client.js"),
         os.path.join(root_dir, "src", "client.js"),
-        r"C:\Users\MWQ\.dsh\plugins\dsh-skills-market\client.js",
-        r"C:\Users\MWQ\.dsh\plugins\dsh-skills-market\src\client.js",
-        r"C:\Users\MWQ\.dsh\plugins\dsh-clawhub-multiskill\client.js",
-        r"C:\Users\MWQ\.dsh\plugins\dsh-clawhub-multiskill\src\client.js"
     ]
 
+    # If running locally on Windows, sync to installed DSH plugin paths if present
+    if os.name == "nt":
+        user_home = os.path.expanduser("~")
+        for plugin_name in ["dsh-skills-market", "dsh-clawhub-multiskill"]:
+            plugin_dir = os.path.join(user_home, ".dsh", "plugins", plugin_name)
+            if os.path.isdir(plugin_dir) and os.path.abspath(plugin_dir) != os.path.abspath(root_dir):
+                destinations.extend([
+                    os.path.join(plugin_dir, "client.js"),
+                    os.path.join(plugin_dir, "src", "client.js"),
+                ])
+
     for d in destinations:
-        os.makedirs(os.path.dirname(d), exist_ok=True)
+        dir_name = os.path.dirname(d)
+        if dir_name:
+            os.makedirs(dir_name, exist_ok=True)
         with open(d, "w", encoding="utf-8") as f:
             f.write(final_client_js)
         print(f"Successfully wrote {len(final_client_js)} bytes to {d}")
