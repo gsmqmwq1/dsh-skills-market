@@ -57,7 +57,7 @@
     ],
     "installed": false,
     "added_at": "2026-10-15",
-    "version": "1.7.0"
+    "version": "1.7.3"
   },
   {
     "id": "deepseek-r1-reasoning",
@@ -251,7 +251,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.13.13"
+    "version": "0.13.14"
   },
   {
     "id": "llamaindex-rag-core",
@@ -289,7 +289,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.15.30"
+    "version": "1.15.33"
   },
   {
     "id": "autogen-multi-agent",
@@ -327,7 +327,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.42.1"
+    "version": "0.43.0"
   },
   {
     "id": "chatchat-knowledge",
@@ -643,7 +643,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.14.1"
+    "version": "2.14.2"
   },
   {
     "id": "alembic-db-migrations",
@@ -681,7 +681,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "9.1.1"
+    "version": "9.2.0"
   },
   {
     "id": "ruff-linter-formatter",
@@ -700,7 +700,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.17.2"
+    "version": "0.17.3"
   },
   {
     "id": "poetry-dependency-manager",
@@ -933,7 +933,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.2.1"
+    "version": "1.9.3"
   },
   {
     "id": "deap-genetic-algorithm",
@@ -971,7 +971,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.4.7"
+    "version": "0.30.3"
   },
   {
     "id": "pymol-molecular-view",
