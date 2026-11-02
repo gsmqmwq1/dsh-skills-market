@@ -123,6 +123,15 @@ const FAMOUS_SKILLS_MAP = {
     stars: "★ 1.2k",
     category: "🔬 科研学术",
     version: "1.0.0"
+  },
+  "grill-me": {
+    name: "编程前置需求澄清与决策树推演 (Grill-Me)",
+    summary: "在写代码或架构设计前，以决策树展开多轮深度盘问，理清隐性假设、前置依赖与技术选型，杜绝盲目脑补和代码返工",
+    repo: "mattpocock/skills",
+    url: "https://github.com/mattpocock/skills",
+    stars: "★ 3.1k",
+    category: "💻 编程开发",
+    version: "1.3.2"
   }
 };
 

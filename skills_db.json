@@ -20,6 +20,26 @@
     "version": "1.2.0"
   },
   {
+    "id": "grill-me",
+    "name": "编程前置需求澄清与决策树推演 (Grill-Me)",
+    "slash": "/grill-me",
+    "repo": "mattpocock/skills",
+    "stars": "★ 3.1k",
+    "category": "💻 编程开发",
+    "summary": "在写代码或架构设计前，以决策树展开多轮深度盘问，理清隐性假设、前置依赖与技术选型，杜绝盲目脑补和代码返工",
+    "tags": [
+      "需求对齐",
+      "决策树",
+      "架构设计",
+      "深度面试",
+      "编程前置",
+      "防返工"
+    ],
+    "installed": true,
+    "added_at": "2026-11-02",
+    "version": "1.3.2"
+  },
+  {
     "id": "humanizer",
     "name": "AI机感消除与纯正文本润色 (Humanizer)",
     "slash": "/humanizer",
