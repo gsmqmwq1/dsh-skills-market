@@ -77,7 +77,7 @@
     ],
     "installed": false,
     "added_at": "2026-10-15",
-    "version": "1.7.3"
+    "version": "1.7.4"
   },
   {
     "id": "deepseek-r1-reasoning",
@@ -156,7 +156,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.18.0"
+    "version": "1.19.0"
   },
   {
     "id": "metagpt-software-company",
@@ -195,7 +195,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "4.1.5"
+    "version": "4.1.6"
   },
   {
     "id": "semantic-kernel",
@@ -309,7 +309,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "1.15.34"
+    "version": "1.15.35"
   },
   {
     "id": "autogen-multi-agent",
@@ -347,7 +347,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "0.43.0"
+    "version": "0.44.0"
   },
   {
     "id": "chatchat-knowledge",
@@ -644,7 +644,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "rel_2_1_6"
+    "version": "rel_2_1_8"
   },
   {
     "id": "pydantic-validation-pro",
@@ -953,7 +953,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.2.1"
+    "version": "1.9.3"
   },
   {
     "id": "deap-genetic-algorithm",
@@ -991,7 +991,7 @@
     ],
     "installed": false,
     "added_at": "2026-08-01",
-    "version": "2.4.7"
+    "version": "0.30.3"
   },
   {
     "id": "pymol-molecular-view",
